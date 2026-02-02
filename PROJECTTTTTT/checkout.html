@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Kopi Beans Store</title>
+    <link rel="icon" type="image/png" href="pictures.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <h1><img src="pictures.jpg" class="logo"> Kopi Beans Store</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Kembali ke Toko</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="checkout-section" style="padding: 50px 0;">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:30px;">Konfirmasi Pesanan</h2>
+            
+            <div class="checkout-container">
+                
+                <div class="order-summary">
+                    <h3 style="margin-bottom:15px; border-bottom:2px solid #ddd; padding-bottom:10px;">Daftar Belanjaan</h3>
+                    <div id="checkout-items">
+                        </div>
+                    <div class="total-row" id="checkout-total">
+                        Total: Rp 0
+                    </div>
+                </div>
+
+                <div class="billing-details">
+                    <h3 style="margin-bottom:15px; border-bottom:2px solid #ddd; padding-bottom:10px;">Data Pengiriman</h3>
+                    <form id="wa-form">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" placeholder="Contoh: Budi Santoso" required>
+
+                        <label for="address">Alamat Lengkap</label>
+                        <textarea id="address" rows="3" placeholder="Jalan, No. Rumah, Kecamatan..." required></textarea>
+
+                        <label for="phone">Nomor WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="08xxxxxxxxxx" required>
+
+                        <p style="font-size: 0.8rem; color: #666; margin-bottom: 15px;">
+                            *Pesanan akan diteruskan ke WhatsApp Admin untuk pembayaran.
+                        </p>
+
+                        <button type="submit" class="btn btn-wa">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang via WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jeremia Wahyu. Kopi Beans Store.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Ambil data keranjang dari LocalStorage
+            // Data ini disimpan saat Anda klik tombol "Lanjut ke Checkout" di halaman utama
+            const storedCart = localStorage.getItem('kopiCart');
+            const cart = storedCart ? JSON.parse(storedCart) : [];
+            
+            const itemsContainer = document.getElementById('checkout-items');
+            const totalElement = document.getElementById('checkout-total');
+
+            let totalPrice = 0;
+
+            // 2. Tampilkan Barang di HTML
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = "<p>Keranjang Anda kosong. Silakan kembali belanja.</p>";
+            } else {
+                cart.forEach(item => {
+                    const subtotal = item.price * item.quantity;
+                    totalPrice += subtotal;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('order-item');
+                    // Style font agar rapi
+                    itemDiv.innerHTML = `
+                        <span style="font-weight:500;">${item.name} <small>(x${item.quantity})</small></span>
+                        <span>Rp ${subtotal.toLocaleString('id-ID')}</span>
+                    `;
+                    itemsContainer.appendChild(itemDiv);
+                });
+            }
+
+            // Update Total Harga
+            if(totalElement) {
+                totalElement.innerText = `Total Bayar: Rp ${totalPrice.toLocaleString('id-ID')}`;
+            }
+
+            // 3. Logika Kirim ke WhatsApp
+            const form = document.getElementById('wa-form');
+            if(form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Mencegah halaman reload
+
+                    const name = document.getElementById('name').value;
+                    const address = document.getElementById('address').value;
+                    
+                    // --- FORMAT PESAN WHATSAPP ---
+                    let message = `Halo Admin Kopi Beans, saya mau pesan:%0A%0A`; 
+                    message += `*Data Pemesan:*%0A`;
+                    message += `Nama: ${name}%0A`;
+                    message += `Alamat: ${address}%0A%0A`;
+                    
+                    message += `*Detail Pesanan:*%0A`;
+                    cart.forEach(item => {
+                        message += `- ${item.name} (${item.quantity}x) = Rp ${(item.price * item.quantity).toLocaleString('id-ID')}%0A`;
+                    });
+
+                    message += `%0A*Total Bayar: Rp ${totalPrice.toLocaleString('id-ID')}*`;
+                    message += `%0A%0AMohon info pembayaran. Terima kasih!`;
+
+                    // GANTI NOMOR DI BAWAH INI DENGAN NOMOR WA ANDA
+                    // Gunakan kode negara 62, jangan pakai 08 atau +
+                    const phoneNumber = "6281234567890"; 
+
+                    // Buka WhatsApp
+                    const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
+                    
+                    // Hapus data keranjang setelah pesan (opsional)
+                    // localStorage.removeItem('kopiCart');
+                    
+                    window.open(waURL, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

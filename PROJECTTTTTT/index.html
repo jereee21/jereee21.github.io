@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan Beans Kopi - Kopi Beans Store</title>
+    <link rel="icon" type="image/png" href="pictures.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <h1><img src="pictures.jpg" class="logo" alt="Logo"> Kopi Beans Store</h1>
+            </div>
+
+            <nav>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Selamat Datang di Toko Beans Kopi Terbaik</h2>
+            <p>Nikmati biji kopi premium dari berbagai daerah. Segar, berkualitas, dan siap diseduh!</p>
+            <a href="#products" class="btn">Lihat Produk</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Selamat datang di <strong>Kopi Beans Store</strong>, toko online terpercaya untuk biji kopi premium. Kami dirikan pada tahun 2026 dengan visi untuk menyediakan biji kopi berkualitas tinggi dari berbagai daerah di Indonesia, langsung dari petani lokal.</p>
+                    <p>Misi kami adalah menghadirkan pengalaman minum kopi yang autentik. Setiap biji kopi kami dipilih dengan hati-hati untuk memastikan rasa, aroma, dan kualitas terbaik. Kami percaya bahwa secangkir kopi bukan hanya minuman, tapi juga cerita dari tanah subur dan kerja keras para petani.</p>
+                </div>
+                <div class="about-image">
+                    <img src="picture2.jpg" alt="Petani Kopi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cart">
+        <div class="container">
+            <h2><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h2>
+            
+            <div id="cart-items">
+                <p style="color: #666; font-style: italic;">Keranjang masih kosong.</p>
+            </div>
+            
+            <div id="cart-total">
+                <p>Total: Rp 0</p>
+            </div>
+            
+            <button id="checkout-btn" class="btn">Lanjut ke Checkout</button>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Produk Beans Kopi</h2>
+            <div class="product-grid">
+                
+                <div class="product">
+                    <img src="pictures.jpg" alt="Kopi Arabica">
+                    <h3>Kopi Arabica Premium</h3>
+                    <p>Biji kopi asli dari dataran tinggi, rasa manis dan halus.</p>
+                    <p class="price">Rp 150.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Robusta" alt="Kopi Robusta">
+                    <h3>Kopi Robusta Klasik</h3>
+                    <p>Biji kopi kuat dengan aroma khas, cocok untuk espresso.</p>
+                    <p class="price">Rp 120.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Blend" alt="Kopi Blend">
+                    <h3>Kopi Blend Special</h3>
+                    <p>Campuran Arabica dan Robusta untuk rasa seimbang.</p>
+                    <p class="price">Rp 130.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Sumatra" alt="Kopi Sumatra">
+                    <h3>Kopi Sumatra Mandheling</h3>
+                    <p>Biji kopi dari Sumatra dengan rasa earthy dan body penuh.</p>
+                    <p class="price">Rp 140.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Java" alt="Kopi Java">
+                    <h3>Kopi Java Preanger</h3>
+                    <p>Biji kopi dari Jawa Barat, rasa fruity dan balanced.</p>
+                    <p class="price">Rp 160.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Bali" alt="Kopi Bali">
+                    <h3>Kopi Bali Kintamani</h3>
+                    <p>Biji kopi dari dataran tinggi Bali, rasa mild dan sweet.</p>
+                    <p class="price">Rp 155.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Flores" alt="Kopi Flores">
+                    <h3>Kopi Flores Bajawa</h3>
+                    <p>Biji kopi organik dari Flores, rasa unique dengan hint citrus.</p>
+                    <p class="price">Rp 170.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Toraja" alt="Kopi Toraja">
+                    <h3>Kopi Toraja</h3>
+                    <p>Biji kopi dari Sulawesi Selatan, rasa smoky dan bold.</p>
+                    <p class="price">Rp 145.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Gayo" alt="Kopi Gayo">
+                    <h3>Kopi Gayo Aceh</h3>
+                    <p>Biji kopi dari Aceh, rasa bright dan acidic.</p>
+                    <p class="price">Rp 165.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="product">
+                    <img src="https://via.placeholder.com/300x200?text=Kopi+Luwak" alt="Kopi Luwak">
+                    <h3>Kopi Luwak Premium</h3>
+                    <p>Biji kopi spesial dari luwak, rasa smooth dan tanpa bitterness.</p>
+                    <p class="price">Rp 500.000/kg</p>
+                    <button class="btn">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Ada pertanyaan atau ingin kerja sama? Kirim pesan kepada kami.</p>
+            
+            <div class="contact-box">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jl. adalah pokonya wkwkwk</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@kopibeans.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+62 812-1259-2004</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <form id="contact-form">
+                    <input type="text" id="contact-name" placeholder="Nama Anda" required>
+                    <input type="email" id="contact-email" placeholder="Email Anda (Opsional)">
+                    <textarea id="contact-message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                    <button type="submit" class="btn">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jeremia Wahyu. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

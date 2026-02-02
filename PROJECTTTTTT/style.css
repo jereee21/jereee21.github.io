@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Tombol Global */
+.btn {
+    background-color: #d4a373; /* Warna Emas Kopi */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #a0522d;
+    transform: scale(1.05);
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+header h1 .logo {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* Membuat logo bulat */
+}
+
+/* Menu Desktop */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li a {
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #d4a373;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(pot-with-coffee-beans.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efek Parallax */
+    height: 100vh; /* Tinggi layar penuh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   4. ABOUT SECTION
+   ========================================= */
+.about {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   5. PRODUCT SECTION
+   ========================================= */
+.products {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.product {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 300px; /* Ukuran tetap agar rapi */
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+    
+    /* Animasi Fade In */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.product.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product:hover {
+    transform: translateY(-5px); /* Efek naik sedikit saat dihover */
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-weight: bold;
+    color: #d4a373;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* =========================================
+   6. CART SECTION
+   ========================================= */
+.cart {
+    padding: 40px 0;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+#cart-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+/* =========================================
+   7. CONTACT SECTION
+   ========================================= */
+.contact-section {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contact-box {
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+/* Info Kiri */
+.contact-info {
+    flex: 1;
+    background: #333;
+    color: white;
+    padding: 40px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #d4a373;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #d4a373;
+}
+
+/* Form Kanan */
+#contact-form {
+    flex: 1.5;
+    padding: 40px;
+    min-width: 300px;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#contact-form input:focus, 
+#contact-form textarea:focus {
+    border-color: #d4a373;
+    outline: none;
+}
+
+/* =========================================
+   8. HALAMAN CHECKOUT (Tambahan)
+   ========================================= */
+.checkout-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.order-summary, .billing-details {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-width: 300px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.total-row {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 15px;
+    text-align: right;
+    color: #d4a373;
+}
+
+.btn-wa {
+    background-color: #25D366;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-wa:hover {
+    background-color: #1ebc57;
+}
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   10. MEDIA QUERIES (RESPONSIF HP)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* Header Mobile */
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #444;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* Hero Mobile */
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    /* About Mobile */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Product Mobile */
+    .product {
+        width: 100%; /* Produk memenuhi layar HP */
+        max-width: 350px;
+    }
+
+    /* Contact Mobile */
+    .contact-box {
+        flex-direction: column;
+    }
+
+    .contact-info, #contact-form {
+        padding: 30px 20px;
+    }
+}
+
+/* =========================================
+   UPDATE STYLE CHECKOUT (Agar Form Rapi)
+   ========================================= */
+
+/* Membuat form field berbaris vertikal rapi */
+.billing-details form {
+    display: flex;
+    flex-direction: column; /* Menyusun elemen dari atas ke bawah */
+}
+
+/* Style untuk Label (Tulisan Nama, Alamat, dll) */
+.billing-details label {
+    font-weight: 600;
+    margin-bottom: 8px; /* Jarak antara label dan kotak isian */
+    color: #333;
+    display: block; /* Memastikan label berdiri sendiri di satu baris */
+}
+
+/* Style untuk Input dan Textarea */
+.billing-details input, 
+.billing-details textarea {
+    width: 100%; /* Memaksa kotak memenuhi lebar kontainer */
+    padding: 12px;
+    margin-bottom: 20px; /* Jarak antar kotak isian */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit; /* Agar font sama dengan website */
+    box-sizing: border-box; /* Agar padding tidak merusak ukuran */
+    transition: border-color 0.3s ease;
+}
+
+/* Efek saat kotak diklik/aktif */
+.billing-details input:focus, 
+.billing-details textarea:focus {
+    border-color: #d4a373; /* Warna emas kopi */
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 163, 115, 0.3);
+}
+
+/* Tombol WhatsApp */
+.btn-wa {
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Jarak ikon WA dan tulisan */
+}
+
+.btn-wa:hover {
+    background-color: #1ebc57;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+/* Teks kecil di bawah form */
+.billing-details p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: -10px; /* Sedikit naik mendekati input terakhir */
+    margin-bottom: 20px;
+}
